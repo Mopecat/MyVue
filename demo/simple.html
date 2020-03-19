@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">{{name}}</div>
+    <script src="../src/observer.js"></script>
+    <script src="../src/watch.js"></script>
+    <script src="../src/index.js"></script>
+    <script>
+        // options prop
+        var vm = new MyVue({
+            el: '#app',
+            data:{
+                name:'Mopecat'
+            }
+        },"name")
+        // 这时已经简单的实现了一个双向绑定了 可以手动的在控制台里修改data中的数据 同步到页面上了
+    </script>
+</body>
+</html>
