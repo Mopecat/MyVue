@@ -1,19 +1,13 @@
-// MyVue的原型
-function MyVue(options, prop) {
-  this.$options = options;
-  this.$data = options.data;
-  this.$prop = prop;
-  this.$el = document.querySelector(options.el);
-  this.init();
-}
+import MyVue from "./myVue";
 
-MyVue.prototype.init = function() {
-  // 将数据劫持重写
-  observer(this.$data);
-  // 赋值挂在元素的文字
-  this.$el.textContent = this.$data[this.$prop];
-  // 添加watcher
-  new Watcher(this, this.$prop, value => {
-    this.$el.textContent = value;
-  });
-};
+const vm = new MyVue(
+  {
+    el: "#app",
+    data: {
+      name: "啦啦啦啦啦"
+    }
+  },
+  "name"
+);
+
+vm.$data.name = "hello world";
